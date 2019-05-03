@@ -1,0 +1,16 @@
+.background-color {
+	background-color: #6495ED;
+}
+
+.background-color-black {
+	background-color: #000000;
+}
+
+.title-text {
+	font-size: 24px;
+	text-align: center;
+	border-width: 5px;
+	border-style: inset;
+	margin-top: 10px;
+	background-color: #c9dcff ;
+}
