@@ -15,7 +15,7 @@
 	        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	            <div class="navbar-nav">
 	                <a class="nav-item nav-link" href="../index.html">Binary Space Partitioning</a>
-	                <a class="nav-item nav-link" href="../index.html">Network Connected Game</a>
+	                <a class="nav-item nav-link" href="../tacos/index.html">Network Connected Game</a>
 	                <a class="nav-item nav-link active" href="index.html">Multi-Layer Perceptron<span class="sr-only">(current)</span></a>
 	            </div>
 	        </div>
@@ -25,11 +25,50 @@
 	        Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
 	    </canvas>
 	    <p class="title-text">Multi-Layer Perceptron Demonstration</p>
+	    <div class="instruction-box">
+	    	<div class="row">
+	    		<div class="col-md-6">
+	    			<h4 class="centered-text">Input/Output Settings</h4>
+	    			<div id="input-settings" class="instruction-text">
+	    				Input Count: <input id="input-node-count" type="number" step="1" min="1" max="8" class="textbox-size-small"> &nbsp&nbsp&nbsp
+	    				Case Fields: 
+	    				<input id="input-case-1" type="number" step="1" min="-8" max="8" class="textbox-size-medium">
+	    				<input id="input-case-2" type="number" step="1" min="-8" max="8" class="textbox-size-medium">
+	    				->
+	    				<input id="output-case-1" type="number" step="1" min="-8" max="8" class="textbox-size-medium">
+	    			</div>
+	    			<div class="instruction-text">
+		    			<button id="create-case-button" type="button">Create Case</button>
+		    		</div>
+	    		</div>
+	    		<div class="col-md-6">
+	    			<p id="input-cases" class="instruction-text">Input Cases: <b>[0,0] [0,1] [1,0] [1,1]</b></p>
+	    			<p id="output-cases" class="instruction-text">Outpus Cases: <b>[0] [1] [1] [0]</b></p>
+	    		</div>
+        	</div>
+	    	<div class="row">
+	            <div class="col-md-12">
+	            	<h4 class="centered-text">Layer Settings</h4>
+	            	<div id="layer-settings" class="instruction-text">
+	            		Layer Count: <input id="layer-count" type="number" step="1" min="0" max="8" class="textbox-size-small">
+	            	</div>
+	            </div>
+        	</div>
+        	<div class="row background-color-secondary">
+        		<div class="col-md-12 instruction-text"> 
+        			<h3 class="network-data"><u>Network Data</u></h3>
+        		</div>
+        	</div>
+	    </div>
+
+	    <script src="src/shader_source.js"></script>
 
 	    <script src="src/engine.js"></script>
+	    <script src="src/joiner.js"></script>
+	    <script src="src/geometry.js"></script>
 
 	    <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
-	    <script src="src/network_example.js"></script>
+	    <!-- <script src="src/network_example.js"></script> -->
 	    <script src="src/network_cpu.js"></script>
 
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -37,7 +76,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	 	<footer class="background-color-black">
-	  		<a href="https://github.com/WilliamLewww/FreeTacos">Github Repo</a>
+	  		<a href="https://github.com/WilliamLewww/GPU-Perceptron">Github Repo</a>
 		</footer> 
 	</body>
 </html>

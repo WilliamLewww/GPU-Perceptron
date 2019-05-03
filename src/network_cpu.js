@@ -88,6 +88,16 @@ function NetworkCPU(inputCount, outputCount) {
 		if (printError) { console.log(math.sum(math.abs(errorList[0]))); }
 		return layerList[layerList.length - 1];
 	}
+
+	//visualizer
+	var rectangleList = [];
+	this.initializeVisualizer = () => {
+		
+	}
+	
+	this.draw = () => {
+
+	}
 }
 
 var logsig = (value, derivative = false) => {
