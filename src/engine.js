@@ -52,12 +52,15 @@ function addListeners() {
 	document.getElementById('input-loop-count').value = 1000;
 	document.getElementById('visual-input-case').value = 0;
 	document.getElementById('layer-neuron-count').value = 3;
+	document.getElementById('feed-forward-value-0').value = 0;
+	document.getElementById('feed-forward-value-1').value = 0;
 
 	//<input id="input-case-0" type="number" step="1" min="-8" max="8" class="textbox-size-medium">
 	document.getElementById('setup-input-button').addEventListener('click', (event) => {
 		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { document.getElementById('input-case-' + x).remove(); }
 		document.getElementById('input-output-separate').remove();
 		for (var x = 0; x < joiner.networkCPU.getOutputCount(); x++) { document.getElementById('output-case-' + x).remove(); }
+		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { document.getElementById('feed-forward-value-' + x).remove(); }
 
 		joiner.networkCPU = new NetworkCPU(parseInt(document.getElementById('input-node-count').value),1);
 		joiner.networkCPU.pushLayer(5);
@@ -67,6 +70,19 @@ function addListeners() {
 		document.getElementById('input-cases').innerHTML = '[';
 		document.getElementById('output-cases').innerHTML = '[';
 
+		//<input id="feed-forward-value-1" type="number" step="1" min="-100" max="100" class="textbox-size-medium">
+		for (var x = 0; x < document.getElementById('input-node-count').value; x++) {
+			var newInput = document.createElement('input');
+			newInput.setAttribute('id', 'feed-forward-value-' + x);
+			newInput.setAttribute('type', 'number');
+			newInput.setAttribute('step', '1');
+			newInput.setAttribute('min', '-100');
+			newInput.setAttribute('max', '100');
+			newInput.setAttribute('value', '0');
+			newInput.setAttribute('class', 'textbox-size-medium');
+			document.getElementById('manipulate-network-div').appendChild(newInput);
+		}
+
 		for (var x = 0; x < document.getElementById('input-node-count').value; x++) {
 			var newInput = document.createElement('input');
 			newInput.setAttribute('id', 'input-case-' + x);
@@ -74,6 +90,7 @@ function addListeners() {
 			newInput.setAttribute('step', '1');
 			newInput.setAttribute('min', '-8');
 			newInput.setAttribute('max', '8');
+			newInput.setAttribute('value', '0');
 			newInput.setAttribute('class', 'textbox-size-medium');
 			document.getElementById('input-settings').appendChild(newInput);
 		}
@@ -89,6 +106,7 @@ function addListeners() {
 		outputInput.setAttribute('step', '1');
 		outputInput.setAttribute('min', '-8');
 		outputInput.setAttribute('max', '8');
+		outputInput.setAttribute('value', '0');
 		outputInput.setAttribute('class', 'textbox-size-medium');
 		document.getElementById('input-settings').appendChild(outputInput);
 	});
@@ -140,6 +158,12 @@ function addListeners() {
 		document.getElementById('printed-error').innerHTML = outputNetworkCPU[1];
 	});
 
+	document.getElementById('feed-forward-button').addEventListener('click', (event) => {
+		var inputList = [];
+		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { inputList.push(document.getElementById('feed-forward-value-' + x).value); }
+		document.getElementById('printed-feed').innerHTML = joiner.networkCPU.feedForward(inputList);
+	});
+
 	document.addEventListener('keydown', (event) => {
 		if (event.keyCode == 13) { joiner.networkCPU.propagateF(); }
 	});
@@ -149,12 +173,8 @@ function casesToString(cases) {
 	var tempString = "[";
 	for (var x = 0; x < cases.length; x++) {
 		for (var y = 0; y < cases[x].length; y++) {
-			if (y == cases[x].length - 1) {
-				tempString += cases[x][y] + "]";
-			}
-			else {
-				tempString += cases[x][y] + ",";
-			}
+			if (y == cases[x].length - 1) { tempString += cases[x][y] + "]"; }
+			else { tempString += cases[x][y] + ","; }
 		}
 		if (x != cases.length - 1) { tempString += " ["; }
 	}

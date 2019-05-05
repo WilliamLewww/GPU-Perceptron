@@ -15,12 +15,8 @@ function NetworkCPU(inputCount, outputCount) {
 
 	var connectOutput = () => {
 		if (outputConnected == false) {
-			if (synapseList.length == 0) {
-				synapseList.push(createMatrixRandom(inputCount, outputCount));
-			}
-			else {
-				synapseList.push(createMatrixRandom(synapseList[synapseList.length - 1][0].length, outputCount));
-			}
+			if (synapseList.length == 0) { synapseList.push(createMatrixRandom(inputCount, outputCount)); }
+			else { synapseList.push(createMatrixRandom(synapseList[synapseList.length - 1][0].length, outputCount)); }
 			outputConnected = true;
 		}
 	}
@@ -54,12 +50,8 @@ function NetworkCPU(inputCount, outputCount) {
 		disconnectOutput();
 
 		if (neuronCount > 0) {
-			if (synapseList.length == 0) {
-				synapseList.push(createMatrixRandom(inputCount, neuronCount));
-			}
-			else {
-				synapseList.push(createMatrixRandom(synapseList[synapseList.length - 1][0].length, neuronCount));
-			}
+			if (synapseList.length == 0) { synapseList.push(createMatrixRandom(inputCount, neuronCount)); }
+			else { synapseList.push(createMatrixRandom(synapseList[synapseList.length - 1][0].length, neuronCount)); }
 		}
 
 		connectOutput();
@@ -69,6 +61,16 @@ function NetworkCPU(inputCount, outputCount) {
 		disconnectOutput();
 		synapseList.pop();
 		connectOutput();
+	}
+
+	this.feedForward = (data) => {
+		layerList = [[data]];
+		for (var x = 0; x < synapseList.length; x++) {
+			layerList.push(activateLayer(math.multiply(layerList[x],synapseList[x]), logsig));
+		}
+		
+		this.updateVisualiser();
+		return [layerList[layerList.length - 1]];
 	}
 
 	this.propagateF = (printError = false) => {
