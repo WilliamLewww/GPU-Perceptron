@@ -8,8 +8,8 @@ function pushMatrixKernel(outputCol, outputRow, innerLength) {
 	};
 
 	multiplyMatrixList.push(gpu.createKernel(function(matrixA, matrixB, innerLength) {
-	    let sum = 0;
-	    for (let i = 0; i < innerLength; i++) {
+	    var sum = 0;
+	    for (var i = 0; i < innerLength; i++) {
 	    	sum += matrixA[this.thread.y][i] * matrixB[i][this.thread.x];
 	    }
 	    return sum;

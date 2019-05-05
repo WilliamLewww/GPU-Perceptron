@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"matr",
+				"matrixA"
+			],
+			[
+				"mul",
+				"multiplyMatrixList"
+			],
+			[
+				"input",
+				"inputCount"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"loop",
+				"loopMaxIterations"
+			],
+			[
+				"propa",
+				"propagateFBGPU\t(network_cpu.js)"
+			],
+			[
+				"delt",
+				"delta-cpu\t(index.html)"
+			],
+			[
 				"outputCo",
 				"outputConnected\t(network_cpu.js)"
 			],
@@ -444,10 +472,6 @@
 				"cameraSpeed"
 			],
 			[
-				"input",
-				"input_list"
-			],
-			[
 				"wallBU",
 				"wallBufferTree"
 			],
@@ -490,30 +514,6 @@
 			[
 				"wa",
 				"wallBuffer"
-			],
-			[
-				"poi",
-				"pointB\t(first_person.js)"
-			],
-			[
-				"Texture",
-				"TEXTURE_2D\t(engine.js)"
-			],
-			[
-				"texture",
-				"textureIndex"
-			],
-			[
-				"rand",
-				"randomTextureIndex"
-			],
-			[
-				"text",
-				"texture_sheet\t(engine.js)"
-			],
-			[
-				"ima",
-				"imageList"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5791,
+				"buffer_size": 6119,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,16 +532,16 @@
 			"file": "src/engine.js",
 			"settings":
 			{
-				"buffer_size": 8557,
+				"buffer_size": 9226,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/network_gpu.js",
+			"file": "src/network.js",
 			"settings":
 			{
-				"buffer_size": 430,
+				"buffer_size": 9281,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +550,7 @@
 			"file": "src/joiner.js",
 			"settings":
 			{
-				"buffer_size": 485,
+				"buffer_size": 482,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -569,15 +569,6 @@
 			"settings":
 			{
 				"buffer_size": 868,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/network_cpu.js",
-			"settings":
-			{
-				"buffer_size": 7067,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1397,6 +1388,7 @@
 	"file_history":
 	[
 		"/C/Projects/GPU-Perceptron/src/network_cpu.js",
+		"/C/Projects/GPU-Perceptron/src/network_gpu.js",
 		"/C/Projects/GPU-Perceptron/src/geometry.js",
 		"/C/Projects/GPU-Perceptron/index.html",
 		"/C/Projects/GPU-Perceptron/src/joiner.js",
@@ -1522,8 +1514,7 @@
 		"/C/Projects/Mood/src/core/timer.h",
 		"/C/Projects/Mood/src/sample.bas",
 		"/C/Projects/Mood/src/third_person.h",
-		"/C/Projects/Mood/src/third_person_transformed.h",
-		"/C/Projects/Mood/src/third_person_transformed.cpp"
+		"/C/Projects/Mood/src/third_person_transformed.h"
 	],
 	"find":
 	{
@@ -1534,6 +1525,7 @@
 		"height": 172.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -1541,6 +1533,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"b",
+			"a",
+			"B",
+			"A",
+			"propagateFB",
+			"NetworkCPU",
+			"networkCPU",
+			"NetworkCPU",
+			"networkCPU",
+			"NetworkCPU",
+			"networkCPU",
+			"NetworkCPU",
+			"networkCPU",
+			"NetworkCPU",
 			"small",
 			"this",
 			"console",
@@ -1606,15 +1612,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5791,
+						"buffer_size": 6119,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1560,
-								1560
+								2106,
+								2106
 							]
 						],
 						"settings":
@@ -1622,7 +1628,7 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 377.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1634,15 +1640,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8557,
+						"buffer_size": 9226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6566,
-								6566
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1653,29 +1659,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/network_gpu.js",
+					"file": "src/network.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 430,
+						"buffer_size": 9281,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								428,
-								428
+								9064,
+								9064
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1690,15 +1697,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 485,
+						"buffer_size": 482,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38,
-								38
+								97,
+								97
 							]
 						],
 						"settings":
@@ -1710,7 +1717,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1738,7 +1745,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1766,42 +1773,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "src/network_cpu.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7067,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								364,
-								364
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1824,18 +1796,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -1870,6 +1835,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				" etw",
+				"src\\network.js"
+			],
 			[
 				"net",
 				"src\\network_cpu.js"
@@ -2311,7 +2280,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

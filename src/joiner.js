@@ -1,3 +1,5 @@
+var propagateWithMainLoop = false;
+
 function Joiner() {
 	this.networkCPU;
 
@@ -15,7 +17,14 @@ function Joiner() {
 	}
 
 	this.update = () => {
-
+		if (propagateWithMainLoop) {
+			outputNetworkCPU = this.networkCPU.propagateFBGPU(5);
+			var tempString = outputNetworkCPU[0][0][0].toFixed(2);
+			for (var x = 1; x < outputNetworkCPU[0].length; x++) { tempString += ", " + outputNetworkCPU[0][x][0].toFixed(2); }
+			document.getElementById('printed-output').innerHTML = tempString;
+			document.getElementById('printed-error').innerHTML = outputNetworkCPU[1];
+			document.getElementById('delta-gpu').innerHTML = outputNetworkCPU[2];
+		}
 	}
 
 	this.draw = () => {

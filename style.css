@@ -22,6 +22,14 @@ input[type=number] {
     width: 12px;
 }
 
+.button-red {
+	background-color: #FF0000;
+}
+
+.button-green {
+	background-color: #00FF00;
+}
+
 .textbox-size-medium {
     width: 24px;
 }

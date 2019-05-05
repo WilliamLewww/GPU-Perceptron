@@ -160,12 +160,9 @@ function addListeners() {
 	});
 
 	document.getElementById('propagate-fb-gpu-button').addEventListener('click', (event) => {
-		outputNetworkCPU = joiner.networkCPU.propagateFBGPU(document.getElementById('input-loop-count').value);
-		var tempString = outputNetworkCPU[0][0][0].toFixed(2);
-		for (var x = 1; x < outputNetworkCPU[0].length; x++) { tempString += ", " + outputNetworkCPU[0][x][0].toFixed(2); }
-		document.getElementById('printed-output').innerHTML = tempString;
-		document.getElementById('printed-error').innerHTML = outputNetworkCPU[1];
-		document.getElementById('delta-gpu').innerHTML = outputNetworkCPU[2];
+		propagateWithMainLoop = !propagateWithMainLoop;
+		if (propagateWithMainLoop) { document.getElementById('propagate-fb-gpu-button').setAttribute('class', 'button-green'); }
+		else { document.getElementById('propagate-fb-gpu-button').setAttribute('class', 'button-red'); }
 	});
 
 	document.getElementById('feed-forward-button').addEventListener('click', (event) => {
