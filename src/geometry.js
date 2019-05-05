@@ -26,7 +26,7 @@ function Line(x1, y1, x2, y2, color = [255,0,0,255]) {
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.getPositionArray()), gl.STATIC_DRAW);
 		gl.vertexAttribPointer(this.positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 		gl.uniform2f(this.resolutionLocation, gl.canvas.width, gl.canvas.height);
-		gl.uniform2f(this.scaleLocation, THIRD_PERSON_SCALE_X * scaleMin, THIRD_PERSON_SCALE_Y * scaleMin);
+		gl.uniform1f(this.scaleLocation, scaleMin);
 		gl.uniform4fv(this.colorLocation, denormalizeColor(this.color));
 		gl.drawArrays(gl.LINES, 0, 2);
 	}
