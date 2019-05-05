@@ -2,7 +2,7 @@ function Joiner() {
 	this.networkCPU;
 
 	this.initialize = () => {
-		this.networkCPU = new NetworkCPU(2,1);
+		this.networkCPU = new Network(2,1);
 		this.networkCPU.pushCase([0,0],[0]);
 		this.networkCPU.pushCase([0,1],[1]);
 		this.networkCPU.pushCase([1,0],[1]);

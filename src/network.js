@@ -1,10 +1,29 @@
-function NetworkCPU(inputCount, outputCount) {
+const gpu = new GPU();
+
+var multiplyMatrixList = [];
+function pushMatrixKernel(outputCol, outputRow, innerLength) {
+	var settings = {
+		output: [outputRow, outputCol],
+		loopMaxIterations: innerLength
+	};
+
+	multiplyMatrixList.push(gpu.createKernel(function(matrixA, matrixB, innerLength) {
+	    let sum = 0;
+	    for (let i = 0; i < innerLength; i++) {
+	    	sum += matrixA[this.thread.y][i] * matrixB[i][this.thread.x];
+	    }
+	    return sum;
+	}, settings));
+}
+
+function Network(inputCount, outputCount) {
 	var inputCount = inputCount;
 	var outputCount = outputCount;
 	var input = [];
 	var desiredOutput = [];
 	var synapseList = [];
 	var layerList = [];
+	var gpuFunctionsCreated = false;
 
 	var outputConnected = false;
 
@@ -55,12 +74,14 @@ function NetworkCPU(inputCount, outputCount) {
 		}
 
 		connectOutput();
+		gpuFunctionsCreated = false;
 	}
 
 	this.popLayer = () => {
 		disconnectOutput();
 		synapseList.pop();
 		connectOutput();
+		gpuFunctionsCreated = false;
 	}
 
 	this.feedForward = (data) => {
@@ -86,7 +107,8 @@ function NetworkCPU(inputCount, outputCount) {
 		return [layerList[layerList.length - 1], math.sum(math.abs(error))];
 	}
 
-	this.propagateFB = (loopCount = 1, printError = false) => {
+	this.propagateFBCPU = (loopCount = 1, printError = false) => {
+		var startTime = window.performance.now();
 		for (var iteration = 0; iteration < loopCount; iteration++) {
 			layerList = [input];
 			for (var x = 0; x < synapseList.length; x++) {
@@ -106,9 +128,47 @@ function NetworkCPU(inputCount, outputCount) {
 			}
 		}
 
+		var endTime = window.performance.now();
+
 		this.updateVisualiser();
 		if (printError) { console.log(math.sum(math.abs(errorList[0]))); }
-		return [layerList[layerList.length - 1], math.sum(math.abs(errorList[0]))];
+		return [layerList[layerList.length - 1], math.sum(math.abs(errorList[0])), endTime - startTime];
+	}
+
+	this.propagateFBGPU = (loopCount = 1, printError = false) => {
+		if (!gpuFunctionsCreated) {
+			multiplyMatrixList = [];
+			gpuFunctionsCreated = true;
+			for (var x = 0; x < synapseList.length; x++) {
+				pushMatrixKernel(input.length, synapseList[x][0].length, synapseList[x].length);
+			}
+		}
+
+		var startTime = window.performance.now();
+		for (var iteration = 0; iteration < loopCount; iteration++) {
+			layerList = [input];
+			for (var x = 0; x < synapseList.length; x++) {
+				layerList.push(activateLayer(multiplyMatrixList[x](layerList[x],synapseList[x],synapseList[x].length), logsig));
+			}
+
+			var errorList = [math.subtract(desiredOutput, layerList[layerList.length - 1])];
+			var deltaList = [math.dotMultiply(errorList[errorList.length - 1], activateLayer(layerList[layerList.length - 1], logsig, true))];
+
+			for (var x = 0; x < synapseList.length - 1; x++) {
+				errorList.push(math.multiply(deltaList[x], math.transpose(synapseList[synapseList.length - 1 - x])));
+				deltaList.push(math.dotMultiply(errorList[x + 1], activateLayer(layerList[layerList.length - 2 - x], logsig, true)));
+			}
+
+			for (var x = synapseList.length - 1; x >= 0; x--) {
+				synapseList[x] = math.add(synapseList[x], math.multiply(math.transpose(layerList[x]), deltaList[deltaList.length - 1 - x]));
+			}
+		}
+
+		var endTime = window.performance.now();
+
+		this.updateVisualiser();
+		if (printError) { console.log(math.sum(math.abs(errorList[0]))); }
+		return [layerList[layerList.length - 1], math.sum(math.abs(errorList[0])), endTime - startTime];
 	}
 
 	//Network Visualizer

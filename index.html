@@ -62,7 +62,8 @@
         		</div>
         		<div id="manipulate-network-div" class="col-md-4 instruction-text">
         			<button id="propagate-f-button">PropagateF</button>
-        			<button id="propagate-fb-button">PropagateFB</button>
+        			<button id="propagate-fb-button">PropagateFB (CPU)</button>
+        			<button id="propagate-fb-gpu-button">PropagateFB (GPU)</button>
         			<p>Loop Count: <input id="input-loop-count" type="number" step="1" min="1" max="100000" class="textbox-size-large"></p>
     				<button id="feed-forward-button">Feed-Forward</button><input id="feed-forward-value-0" type="number" step="1" min="-100" max="100" class="textbox-size-medium"><input id="feed-forward-value-1" type="number" step="1" min="-100" max="100" class="textbox-size-medium">
         		</div>
@@ -76,6 +77,8 @@
     				Error:
     				<inline id="printed-error">0.0</inline></p>
     				<p>Output for Fed Case: <inline id="printed-feed">0.0</inline></p>
+    				<p>Delta Time CPU: <inline id="delta-cpu">0.0</inline></p>
+    				<p>Delta Time GPU: <inline id="delta-gpu">0.0</inline></p>
         		</div>
         	</div>
 	    </div>
@@ -87,8 +90,9 @@
 	    <script src="src/geometry.js"></script>
 
 	    <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
+	    <script src="https://cdn.rawgit.com/gpujs/gpu.js/45103b7f154a12ec639990c6896b21a053eb6a6c/bin/gpu.js"></script>
 	    <!-- <script src="src/network_example.js"></script> -->
-	    <script src="src/network_cpu.js"></script>
+	    <script src="src/network.js"></script>
 
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
