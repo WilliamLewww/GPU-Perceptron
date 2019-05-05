@@ -62,7 +62,7 @@ function addListeners() {
 		for (var x = 0; x < joiner.networkCPU.getOutputCount(); x++) { document.getElementById('output-case-' + x).remove(); }
 		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { document.getElementById('feed-forward-value-' + x).remove(); }
 
-		joiner.networkCPU = new NetworkCPU(parseInt(document.getElementById('input-node-count').value),1);
+		joiner.networkCPU = new Network(parseInt(document.getElementById('input-node-count').value),1);
 		joiner.networkCPU.pushLayer(5);
 		joiner.networkCPU.pushLayer(3);
 		joiner.networkCPU.pushLayer(4);
