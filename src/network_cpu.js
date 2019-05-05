@@ -60,9 +60,10 @@ function NetworkCPU(inputCount, outputCount) {
 		}
 
 		var error = math.subtract(desiredOutput, layerList[layerList.length - 1]);
-		if (printError) { console.log(math.sum(math.abs(error))); }
 
-		return layerList[layerList.length - 1];
+		this.updateVisualiser();
+		if (printError) { console.log(math.sum(math.abs(error))); }
+		return [layerList[layerList.length - 1], math.sum(math.abs(error))];
 	}
 
 	this.propagateFB = (loopCount = 1, printError = false) => {
@@ -85,18 +86,46 @@ function NetworkCPU(inputCount, outputCount) {
 			}
 		}
 
+		this.updateVisualiser();
 		if (printError) { console.log(math.sum(math.abs(errorList[0]))); }
-		return layerList[layerList.length - 1];
+		return [layerList[layerList.length - 1], math.sum(math.abs(errorList[0]))];
 	}
 
-	//visualizer
+	//Network Visualizer
+	var nodeWidth = 25;
+	var nodeHeight = 25;
 	var rectangleList = [];
 	this.initializeVisualizer = () => {
-		
-	}
-	
-	this.draw = () => {
+		var distanceX = SCREEN_WIDTH / (synapseList.length + 1);
+		var distanceY = SCREEN_HEIGHT / inputCount;
+		for (var x = 0; x < inputCount; x++) {
+			rectangleList.push(new Rectangle((distanceX / 2) - (nodeWidth / 2), ((distanceY * x) + (distanceY / 2)) - (nodeHeight / 2), nodeWidth, nodeHeight));
+		}
 
+		for (var x = 0; x < synapseList.length; x++) {
+			distanceY = SCREEN_HEIGHT / synapseList[x][0].length;
+			for (var y = 0; y < synapseList[x][0].length; y++) {
+				rectangleList.push(new Rectangle((distanceX * (x + 1)) + (distanceX / 2) - (nodeWidth / 2), ((distanceY * y) + (distanceY / 2)) - (nodeHeight / 2), nodeWidth, nodeHeight));
+			}
+		}
+	}
+
+	this.updateVisualiser = () => {
+		var counter = 0;
+		var inputCase = document.getElementById('visual-input-case').value;
+		for (var x = 0; x < layerList.length; x++) {
+			for (var y = 0; y < layerList[x][inputCase].length; y++) {
+				rectangleList[counter].color[0] = (1.0 - layerList[x][inputCase][y]) * 255.0;
+				rectangleList[counter].color[1] = (layerList[x][inputCase][y]) * 255.0;
+				counter += 1;
+			}
+		}
+	}
+
+	this.draw = () => {
+		rectangleList.forEach(rectangle => {
+			rectangle.draw();
+		});
 	}
 }
 

@@ -43,6 +43,7 @@ function resize() {
 var inputSettingsDiv = document.getElementById('input-settings');
 var inputNodeCount = 2;
 var layerCount = 3;
+var outputNetworkCPU;
 function addListeners() {
 	document.getElementById('layer-count').value = 3;
 	document.getElementById('layer-count').addEventListener('change', (event) => {
@@ -52,13 +53,40 @@ function addListeners() {
 	document.getElementById('input-case-1').value = 0;
 	document.getElementById('input-case-2').value = 0;
 	document.getElementById('output-case-1').value = 0;
+	document.getElementById('delete-case-input').value = 0;
 	document.getElementById('input-node-count').value = 2;
+	document.getElementById('input-loop-count').value = 1000;
+	document.getElementById('visual-input-case').value = 0;
 	document.getElementById('input-node-count').addEventListener('change', (event) => {
 
 	});
 
 	document.getElementById('create-case-button').addEventListener('click', (event) => {
 		
+	});
+
+	document.getElementById('delete-case-button').addEventListener('click', (event) => {
+
+	});
+
+	document.getElementById('propagate-f-button').addEventListener('click', (event) => {
+		outputNetworkCPU = joiner.networkCPU.propagateF();
+		var tempString = outputNetworkCPU[0][0][0].toFixed(2);
+		for (var x = 1; x < outputNetworkCPU[0].length; x++) { tempString += ", " + outputNetworkCPU[0][x][0].toFixed(2); }
+		document.getElementById('printed-output').innerHTML = tempString;
+		document.getElementById('printed-error').innerHTML = outputNetworkCPU[1];
+	});
+
+	document.getElementById('propagate-fb-button').addEventListener('click', (event) => {
+		outputNetworkCPU = joiner.networkCPU.propagateFB(document.getElementById('input-loop-count').value);
+		var tempString = outputNetworkCPU[0][0][0].toFixed(2);
+		for (var x = 1; x < outputNetworkCPU[0].length; x++) { tempString += ", " + outputNetworkCPU[0][x][0].toFixed(2); }
+		document.getElementById('printed-output').innerHTML = tempString;
+		document.getElementById('printed-error').innerHTML = outputNetworkCPU[1];
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.keyCode == 13) { joiner.networkCPU.propagateF(); }
 	});
 }
 

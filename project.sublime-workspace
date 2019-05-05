@@ -4,12 +4,108 @@
 		"selected_items":
 		[
 			[
-				"dH",
-				"dHidden1"
+				"out",
+				"outputNetworkCPU"
+			],
+			[
+				"printe",
+				"printed-output\t(index.html)"
+			],
+			[
+				"pro",
+				"propagate-f-button\t(index.html)"
+			],
+			[
+				"prop",
+				"propagateFB\t(network_cpu.js)"
+			],
+			[
+				"dista",
+				"distanceY"
+			],
+			[
+				"nod",
+				"nodeHeight"
+			],
+			[
+				"node",
+				"nodeWidth"
+			],
+			[
+				"dis",
+				"distanceY"
+			],
+			[
+				"dist",
+				"distanceX"
+			],
+			[
+				"re",
+				"rectangle"
+			],
+			[
+				"initial",
+				"initializeVisualizer\t(network_cpu.js)"
+			],
+			[
+				"align",
+				"vertical-align\tproperty"
+			],
+			[
+				"cente",
+				"centered-text"
+			],
+			[
+				"cen",
+				"centered-text"
+			],
+			[
+				"inpu",
+				"input-node-count\t(index.html)"
+			],
+			[
+				"ins",
+				"instruction-box"
+			],
+			[
+				"push",
+				"pushLayer\t(network_cpu.js)"
+			],
+			[
+				"instr",
+				"instruction-text"
+			],
+			[
+				"Net",
+				"NetworkCPU\t(network_cpu.js)"
+			],
+			[
+				"syn",
+				"synapseIndex"
+			],
+			[
+				"erro",
+				"errorList"
+			],
+			[
+				"err",
+				"errorList"
+			],
+			[
+				"ner",
+				"neuronCount"
+			],
+			[
+				"inp",
+				"inputRow"
 			],
 			[
 				"hidd",
-				"hidden0"
+				"hidden3"
+			],
+			[
+				"dH",
+				"dHidden1"
 			],
 			[
 				"eH",
@@ -212,10 +308,6 @@
 				"connect\t(engine.js)"
 			],
 			[
-				"instr",
-				"instruction-text\t(style.css)"
-			],
-			[
 				"pos",
 				"positionInterval"
 			],
@@ -400,10 +492,6 @@
 				"ARRAY_BUFFER"
 			],
 			[
-				"inp",
-				"input_list"
-			],
-			[
 				"paddi",
 				"padding-right\tproperty"
 			],
@@ -426,94 +514,6 @@
 			[
 				"cant",
 				"canToggleDrawOrder"
-			],
-			[
-				"Lin",
-				"LINES"
-			],
-			[
-				"border-",
-				"border-left-width\tproperty"
-			],
-			[
-				"backgrou",
-				"background-size\tproperty"
-			],
-			[
-				"buf",
-				"wallBufferTree"
-			],
-			[
-				"lin",
-				"linkNodeWithWall"
-			],
-			[
-				"print",
-				"printBinaryTree\t(data_parse.js)"
-			],
-			[
-				"wallC",
-				"wallCount"
-			],
-			[
-				"FRA",
-				"FRAGMENT_SHADER_1"
-			],
-			[
-				"VE",
-				"VERTEX_SHADER_1"
-			],
-			[
-				"poin",
-				"pointB"
-			],
-			[
-				"camer",
-				"cameraAngle"
-			],
-			[
-				"index",
-				"indexOf\t(engine.js)"
-			],
-			[
-				"key",
-				"keyCode"
-			],
-			[
-				"inde",
-				"indexOf"
-			],
-			[
-				"Sc",
-				"SCREEN_HEIGHT\t(engine.js)"
-			],
-			[
-				"Wa",
-				"wallArray"
-			],
-			[
-				"colo",
-				"colorIndex"
-			],
-			[
-				"col",
-				"colorIndex"
-			],
-			[
-				"color",
-				"colorList"
-			],
-			[
-				"posi",
-				"positionList"
-			],
-			[
-				"spl",
-				"splitter"
-			],
-			[
-				"printT",
-				"printBinaryTreeToken"
 			]
 		]
 	},
@@ -523,16 +523,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2475,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/network_example.js",
-			"settings":
-			{
-				"buffer_size": 2268,
+				"buffer_size": 5126,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,7 +532,34 @@
 			"file": "style.css",
 			"settings":
 			{
-				"buffer_size": 252,
+				"buffer_size": 1136,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/engine.js",
+			"settings":
+			{
+				"buffer_size": 3570,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/geometry.js",
+			"settings":
+			{
+				"buffer_size": 2723,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/joiner.js",
+			"settings":
+			{
+				"buffer_size": 485,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +568,16 @@
 			"file": "src/shader_source.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 868,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/network_cpu.js",
+			"settings":
+			{
+				"buffer_size": 4869,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1369,8 +1396,9 @@
 	],
 	"file_history":
 	[
-		"/C/Projects/GPU-Perceptron/src/engine.js",
 		"/C/Projects/GPU-Perceptron/src/network_example.js",
+		"/C/Projects/GPU-Perceptron/src/network.js",
+		"/C/Projects/GPU-Perceptron/src/engine.js",
 		"/C/Projects/GPU-Perceptron/src/network_model.js",
 		"/C/Projects/TestBed/lab1.cpp",
 		"/C/Projects/FreeTacos/index.html",
@@ -1495,12 +1523,11 @@
 		"/C/Projects/Visual-Computer/src/cpu.cpp",
 		"/C/Projects/Visual-Computer/src/core/drawing.cpp",
 		"/C/Projects/Visual-Computer/src/core/drawing.h",
-		"/C/Projects/Visual-Computer/src/cpu.h",
-		"/C/Projects/Visual-Computer/src/datas.h"
+		"/C/Projects/Visual-Computer/src/cpu.h"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -1514,6 +1541,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"var",
+			"nbsp",
+			"h3",
+			"Options",
+			"y",
+			"x",
+			"this",
+			"var layerList",
+			"layerList",
+			"this.synapseList",
+			"synapseList",
+			"this.desiredOutput",
+			"this.input",
+			"input",
+			"this",
+			"outputCount",
+			"inputCount",
+			"this",
+			"inputCount",
+			"layerList",
+			"x",
 			"multiply",
 			"x"
 		],
@@ -1533,7 +1581,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1542,15 +1590,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2475,
+						"buffer_size": 5126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								610,
-								610
+								2406,
+								2406
 							]
 						],
 						"settings":
@@ -1562,53 +1610,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/network_example.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1384,
-								1384
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 231.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 252,
+						"buffer_size": 1136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								252,
-								252
+								457,
+								457
 							]
 						],
 						"settings":
@@ -1619,24 +1638,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/shader_source.js",
+					"buffer": 2,
+					"file": "src/engine.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 3570,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								50,
+								50
 							]
 						],
 						"settings":
@@ -1647,7 +1666,120 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/geometry.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/joiner.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								292,
+								292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/shader_source.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								868,
+								868
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/network_cpu.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2793,
+								2793
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 444.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1710,6 +1842,26 @@
 		"selected_items":
 		[
 			[
+				"net",
+				"src\\network_cpu.js"
+			],
+			[
+				"sha",
+				"src\\shader_source.js"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"css",
+				"style.css"
+			],
+			[
+				"e",
+				"src\\engine.js"
+			],
+			[
 				"",
 				"src\\network_example.js"
 			],
@@ -1734,10 +1886,6 @@
 				"src\\joiner.js"
 			],
 			[
-				"sha",
-				"src\\shader_source.js"
-			],
-			[
 				"eng",
 				"src\\engine.js"
 			],
@@ -1752,10 +1900,6 @@
 			[
 				"s_e",
 				"src\\s_entities.js"
-			],
-			[
-				"css",
-				"style.css"
 			],
 			[
 				"engi",
@@ -1798,10 +1942,6 @@
 				"project.sublime-project"
 			],
 			[
-				"e",
-				"src\\engine.js"
-			],
-			[
 				"en",
 				"src\\engine.js"
 			],
@@ -1828,10 +1968,6 @@
 			[
 				"sh",
 				"src\\shader_source.js"
-			],
-			[
-				"in",
-				"index.html"
 			],
 			[
 				"index",

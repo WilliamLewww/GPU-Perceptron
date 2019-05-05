@@ -26,6 +26,10 @@ input[type=number] {
     width: 24px;
 }
 
+.textbox-size-large {
+    width: 64px;
+}
+
 .background-color {
 	background-color: #6495ED;
 }

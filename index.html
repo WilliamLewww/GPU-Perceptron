@@ -39,6 +39,8 @@
 	    			</div>
 	    			<div class="instruction-text">
 		    			<button id="create-case-button" type="button">Create Case</button>
+		    			<button id="delete-case-button" type="button">Delete Case at index:</button>
+		    			<input id="delete-case-input" type="number" step="1" min="0" max="100" class="textbox-size-small">
 		    		</div>
 	    		</div>
 	    		<div class="col-md-6">
@@ -57,6 +59,21 @@
         	<div class="row background-color-secondary">
         		<div class="col-md-12 instruction-text"> 
         			<h3 class="network-data"><u>Network Data</u></h3>
+        		</div>
+        		<div class="col-md-4 instruction-text">
+        			<button id="propagate-f-button">PropagateF</button>
+        			<button id="propagate-fb-button">PropagateFB</button>
+        			<p>Loop Count: <input id="input-loop-count" type="number" step="1" min="1" max="100000" class="textbox-size-large">
+        		</div>
+        		<div class="col-md-8 instruction-text">
+        			<p>Network Visualizer Input Case:
+        			<input id="visual-input-case" type="number" step="1" min="0" max="100" class="textbox-size-small">
+        			</p>
+        			Output for All Cases:
+    				<inline id="printed-output">0.0, 0.0, 0.0, 0.0</inline>
+    				&nbsp&nbsp&nbsp
+    				Error:
+    				<inline id="printed-error">1.0</inline>
         		</div>
         	</div>
 	    </div>
