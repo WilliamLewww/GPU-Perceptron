@@ -10,7 +10,6 @@ function Joiner() {
 		this.networkCPU.pushLayer(5);
 		this.networkCPU.pushLayer(3);
 		this.networkCPU.pushLayer(4);
-
 		this.networkCPU.initializeVisualizer();
 	}
 

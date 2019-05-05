@@ -45,28 +45,47 @@ var inputNodeCount = 2;
 var layerCount = 3;
 var outputNetworkCPU;
 function addListeners() {
-	document.getElementById('layer-count').value = 3;
-	document.getElementById('layer-count').addEventListener('change', (event) => {
-		console.log(event.target.value);
-	});
-
+	document.getElementById('input-case-0').value = 0;
 	document.getElementById('input-case-1').value = 0;
-	document.getElementById('input-case-2').value = 0;
-	document.getElementById('output-case-1').value = 0;
-	document.getElementById('delete-case-input').value = 0;
+	document.getElementById('output-case-0').value = 0;
 	document.getElementById('input-node-count').value = 2;
 	document.getElementById('input-loop-count').value = 1000;
 	document.getElementById('visual-input-case').value = 0;
-	document.getElementById('input-node-count').addEventListener('change', (event) => {
+	document.getElementById('layer-neuron-count').value = 3;
+
+	document.getElementById('setup-input-button').addEventListener('click', (event) => {
 
 	});
 
 	document.getElementById('create-case-button').addEventListener('click', (event) => {
-		
+		var inputList = [];
+		var outputList = [];
+		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { inputList.push(document.getElementById('input-case-' + x).value); }
+		for (var x = 0; x < joiner.networkCPU.getOutputCount(); x++) { outputList.push(document.getElementById('output-case-' + x).value); }
+
+		joiner.networkCPU.pushCase(inputList, outputList);
+		document.getElementById('input-cases').innerHTML = casesToString(joiner.networkCPU.getInputCases());
+		document.getElementById('output-cases').innerHTML = casesToString(joiner.networkCPU.getOutputCases());
 	});
 
-	document.getElementById('delete-case-button').addEventListener('click', (event) => {
+	document.getElementById('pop-case-button').addEventListener('click', (event) => {
+		joiner.networkCPU.popCase();
+		document.getElementById('input-cases').innerHTML = casesToString(joiner.networkCPU.getInputCases());
+		document.getElementById('output-cases').innerHTML = casesToString(joiner.networkCPU.getOutputCases());
+	});
 
+	document.getElementById('create-layer-button').addEventListener('click', (event) => {
+		layerCount += 1;
+		document.getElementById('hidden-layer-count').innerHTML = "Hidden Layer Count: " + layerCount;
+		joiner.networkCPU.pushLayer(document.getElementById('layer-neuron-count').value);
+		joiner.networkCPU.initializeVisualizer();
+	});
+
+	document.getElementById('pop-layer-button').addEventListener('click', (event) => {
+		layerCount -= 1;
+		document.getElementById('hidden-layer-count').innerHTML = "Hidden Layer Count: " + layerCount;
+		joiner.networkCPU.popLayer();
+		joiner.networkCPU.initializeVisualizer();
 	});
 
 	document.getElementById('propagate-f-button').addEventListener('click', (event) => {
@@ -88,6 +107,23 @@ function addListeners() {
 	document.addEventListener('keydown', (event) => {
 		if (event.keyCode == 13) { joiner.networkCPU.propagateF(); }
 	});
+}
+
+function casesToString(cases) {
+	var tempString = "[";
+	for (var x = 0; x < cases.length; x++) {
+		for (var y = 0; y < cases[x].length; y++) {
+			if (y == cases[x].length - 1) {
+				tempString += cases[x][y] + "]";
+			}
+			else {
+				tempString += cases[x][y] + ",";
+			}
+		}
+		if (x != cases.length - 1) { tempString += " ["; }
+	}
+
+	return tempString;
 }
 
 function mainLoop() {
