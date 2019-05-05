@@ -53,8 +53,44 @@ function addListeners() {
 	document.getElementById('visual-input-case').value = 0;
 	document.getElementById('layer-neuron-count').value = 3;
 
+	//<input id="input-case-0" type="number" step="1" min="-8" max="8" class="textbox-size-medium">
 	document.getElementById('setup-input-button').addEventListener('click', (event) => {
+		for (var x = 0; x < joiner.networkCPU.getInputCount(); x++) { document.getElementById('input-case-' + x).remove(); }
+		document.getElementById('input-output-separate').remove();
+		for (var x = 0; x < joiner.networkCPU.getOutputCount(); x++) { document.getElementById('output-case-' + x).remove(); }
 
+		joiner.networkCPU = new NetworkCPU(parseInt(document.getElementById('input-node-count').value),1);
+		joiner.networkCPU.pushLayer(5);
+		joiner.networkCPU.pushLayer(3);
+		joiner.networkCPU.pushLayer(4);
+		joiner.networkCPU.initializeVisualizer();
+		document.getElementById('input-cases').innerHTML = '[';
+		document.getElementById('output-cases').innerHTML = '[';
+
+		for (var x = 0; x < document.getElementById('input-node-count').value; x++) {
+			var newInput = document.createElement('input');
+			newInput.setAttribute('id', 'input-case-' + x);
+			newInput.setAttribute('type', 'number');
+			newInput.setAttribute('step', '1');
+			newInput.setAttribute('min', '-8');
+			newInput.setAttribute('max', '8');
+			newInput.setAttribute('class', 'textbox-size-medium');
+			document.getElementById('input-settings').appendChild(newInput);
+		}
+
+		var inputOutputSeparate = document.createElement('inline');
+		inputOutputSeparate.setAttribute('id', 'input-output-separate');
+		inputOutputSeparate.innerHTML = '->';
+		document.getElementById('input-settings').appendChild(inputOutputSeparate);
+
+		var outputInput = document.createElement('input');
+		outputInput.setAttribute('id', 'output-case-' + 0);
+		outputInput.setAttribute('type', 'number');
+		outputInput.setAttribute('step', '1');
+		outputInput.setAttribute('min', '-8');
+		outputInput.setAttribute('max', '8');
+		outputInput.setAttribute('class', 'textbox-size-medium');
+		document.getElementById('input-settings').appendChild(outputInput);
 	});
 
 	document.getElementById('create-case-button').addEventListener('click', (event) => {
