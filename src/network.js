@@ -56,6 +56,7 @@ function Network(inputCount, outputCount) {
 		}
 
 		connectOutput();
+		gpuFunctionsCreated = false;
 	}
 
 	this.popCase = () => {
@@ -63,6 +64,7 @@ function Network(inputCount, outputCount) {
 		input.pop();
 		desiredOutput.pop();
 		connectOutput();
+		gpuFunctionsCreated = false;
 	}
 
 	this.pushLayer = (neuronCount) => {

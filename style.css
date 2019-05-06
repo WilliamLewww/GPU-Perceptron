@@ -46,6 +46,11 @@ input[type=number] {
 	background-color: #000000;
 }
 
+.second-box {
+	margin-top: 5px;
+	margin-bottom: -8px;
+}
+
 .title-text {
 	font-size: 24px;
 	text-align: center;
@@ -60,6 +65,8 @@ input[type=number] {
 	border-width: 8px;
 	margin-top: -5px;
 	background-color: #c9dcff ;
+	width: 75vw;
+	margin: auto;
 }
 
 .centered-text {

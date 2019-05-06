@@ -18,7 +18,7 @@ function Joiner() {
 
 	this.update = () => {
 		if (propagateWithMainLoop) {
-			outputNetworkCPU = this.networkCPU.propagateFBGPU(5);
+			outputNetworkCPU = this.networkCPU.propagateFBGPU(document.getElementById('input-loop-count').value / 250);
 			var tempString = outputNetworkCPU[0][0][0].toFixed(2);
 			for (var x = 1; x < outputNetworkCPU[0].length; x++) { tempString += ", " + outputNetworkCPU[0][x][0].toFixed(2); }
 			document.getElementById('printed-output').innerHTML = tempString;
