@@ -7,7 +7,6 @@ function Line(x1, y1, x2, y2, color = [255,0,0,255]) {
 	this.y1 = y1;
 	this.x2 = x2;
 	this.y2 = y2;
-
 	this.color = color;
 
 	this.program = programList[0];
@@ -44,7 +43,6 @@ function Rectangle(x, y, width, height, color = [255,0,0,255]) {
 	this.y = y;
 	this.width = width;
 	this.height = height;
-
 	this.color = color;
 
 	this.program = programList[0];

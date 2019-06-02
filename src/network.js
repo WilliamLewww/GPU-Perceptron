@@ -47,6 +47,16 @@ function Network(inputCount, outputCount) {
 		}
 	}
 
+	this.randomizeSynapses = () => {
+		for (var x = 0; x < synapseList.length; x++) {
+			for (var y = 0; y < synapseList[x].length; y++) {
+				for (var z = 0; z < synapseList[x][y].length; z++) {
+					synapseList[x][y][z] = Math.random();
+				}
+			}
+		}
+	}
+
 	this.pushCase = (inputRow, outputRow) => {
 		disconnectOutput();
 
